@@ -9,8 +9,10 @@ Bt = {
 };
 
 Bt.extend = function(obj, prop) {
-	for ( var i in prop ){
-		obj[i] = prop[i];
+	if(obj && prop && typeof prop == 'object'){
+		for ( var i in prop ){
+			obj[i] = prop[i];
+		}
 	}
 	return obj;
 };
