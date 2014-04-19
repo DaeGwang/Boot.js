@@ -56,6 +56,9 @@ Bt.extend(Bt, {
 		if(cls) dom.className = cls;
 		return dom;
 	},
+	get: function(id){
+		return document.getElementById(id);
+	},
 	objEncode : function(){
         if(!o){
             return "";
@@ -129,12 +132,13 @@ Bt.Request = {
 }
 
 Bt.Dom = {
-	get: function(id){
-		return document.getElementById(id);
+	init: function(){
+		this.getEl();
+		this.setItem();
 	},
 	show: function(id){
 		var dom;
-		if(Bt.Dom.get(id) === null){
+		if(Bt.get(id) === null){
 			dom = document.getElementsByTagName("body").item(); 
 		}
 		else{
