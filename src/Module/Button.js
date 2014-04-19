@@ -49,3 +49,22 @@ Bt.extend(Bt.Button.prototype, {
 	}
 });
 
+
+Bt.Group = function(config){
+	Bt.extend(this, config);
+	this.init();
+};
+Bt.extend(Bt.Group.prototype, Bt.Dom);
+Bt.extend(Bt.Group.prototype, {
+	getEl: function(){
+		var div, btnColor;
+		var size = ((!this.size) ? '' : "btn-group-" + Bt.size[this.size]);
+		div = Bt.tag("div", "btn-group" 
+				+ (this.type ? '-' + this.type : ' ') + size);
+		
+		this.mainEl = div;
+		this.el = div;
+		return div;
+	}
+});
+
