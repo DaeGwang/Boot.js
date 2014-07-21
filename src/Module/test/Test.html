@@ -3,11 +3,12 @@
 <head>
 <meta charset="utf-8">
 <title>Test</title>
-<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
-<script type="text/javascript" src="Bt.js"></script>
-<script type="text/javascript" src="Button.js"></script>
-<script type="text/javascript" src="Panel.js"></script>
-<script type="text/javascript" src="Form.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../css/bootstrap.css">
+<script type="text/javascript" src="../Bt.js"></script>
+<script type="text/javascript" src="../Button.js"></script>
+<script type="text/javascript" src="../Panel.js"></script>
+<script type="text/javascript" src="../Form.js"></script>
+<script type="text/javascript" src="../Col.js"></script>
 <script type-"text/javascript">
 
 /*
@@ -17,16 +18,31 @@
  */
 
 window.onload = function(){
-	Input = new Bt.fmInput({
-		
+	col = new Bt.Col({
+		item:[{
+			size: 3,
+			html: 'aaa'
+		},{
+			size: 4,
+			html: 'bbb'
+		}]
 	});
-	Input.show();
+	col.show();
 	
-	Panel = new Bt.Panel({
-		title: 'title',
-		color: 'blue'
+	aBtn = new Bt.Button({
+		text:'aButton',
+		color: 'red'
+	});
+	bBtn = new Bt.Button({
+		text: 'bButton',
+	});
+
+	Group = new Bt.Group({
+		size: 'large',
+		type: 'vertical',
+		item: [aBtn, bBtn] 
 	})
-	Panel.show();
+	Group.show();
 }
 </script>
 </head>

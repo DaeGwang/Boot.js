@@ -7,9 +7,6 @@ Bt.Grid = function(config){
 };
 Bt.extend(Bt.Grid.prototype, Bt.Dom);
 Bt.extend(Bt.Grid.prototype, {
-	init: function(){
-		this.getEl();
-	},
 	setStore: function(json, name){
 		var data, record;
 		record = [];
