@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Test</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<script type="text/javascript" src="Bt.js"></script>
+<script type-"text/javascript">
+
+/*
+ * 
+ *  Test Page
+ * 
+ */
+
+
+ /*
+  * 
+  *  Test
+  * 
+  */
+
+ window.onload = function(){
+ 	aBtn = new Bt.Button({
+ 		/*
+ 		 * Button Text
+ 		 * ================
+ 		 * default: button
+ 		 */
+ 		text: "Text",
+ 		
+ 		/*
+ 		 * Button Color
+ 		 * ================
+ 		 * blue-primary
+ 		 * green-success
+ 		 * skyblue-info
+ 		 * orange-warning
+ 		 * red-danger
+ 		 * trans-link
+ 		 */
+ 		color: "red", 
+ 	
+ 		/*
+ 		 * Button Size
+ 		 * ===============
+ 		 * large, default, small, xsmall, block
+ 		 */
+ 		size: "xsmall",
+ 		
+ 		/*
+ 		 * Button Icon
+ 		 * ===============
+ 		 * Includes 200 glyphs in font format from the Glyphicon Halflings set
+ 		 * http://glyphicons.com/
+ 		 */
+ 		icon: "ok",
+ 		
+ 		/*
+ 		 * Add Event 
+ 		 */
+ 		onclick: function(){
+ 			aBtn.setText("clicked");
+ 		}
+ 	});
+ 	
+ 	aPanel = new Bt.Panel({
+ 		//title: "panel title",
+ 		tbar: [aBtn],
+ 		color: "orange"
+ 	});
+ 	aPanel.show();
+ 	
+	col = new Bt.Col({
+		item:[{
+			size: 3,
+			html: 'aaa'
+		},{
+			size: 4,
+			html: 'bbb'
+		}]
+	});
+	col.show();
+	
+	lBtn = new Bt.Button({
+		text:'aButton',
+		color: 'red'
+	});
+	rBtn = new Bt.Button({
+		text: 'bButton',
+	});
+
+	Group = new Bt.Group({
+		size: 'large',
+		type: 'vertical',
+		item: [lBtn, rBtn] 
+	})
+	Group.show();
+}
+</script>
+</head>
+<body>
+</body>
+</html>
