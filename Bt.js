@@ -139,7 +139,7 @@ Bt.Dom = {
 	show: function(id){
 		var dom;
 		if(Bt.get(id) === null){
-			dom = document.getElementsByTagName("body").item(); 
+			dom = document.getElementsByTagName("body")[0]; 
 		}
 		else{
 			dom = Bt.Dom.get(id);
