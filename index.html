@@ -4,21 +4,8 @@
 <meta charset="utf-8">
 <title>Test</title>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-<script type="text/javascript" src="Bt.js"></script>
+<script type="text/javascript" src="js/bootJs.js"></script>
 <script type-"text/javascript">
-
-/*
- * 
- *  Test Page
- * 
- */
-
-
- /*
-  * 
-  *  Test
-  * 
-  */
 
  window.onload = function(){
  	aBtn = new Bt.Button({
@@ -66,36 +53,13 @@
  	
  	aPanel = new Bt.Panel({
  		//title: "panel title",
- 		tbar: [aBtn],
- 		color: "orange"
+ 		//tbar: [aBtn],
+ 		item: [aBtn]
+ 		//color: "orange"
  	});
- 	aPanel.show();
  	
-	col = new Bt.Col({
-		item:[{
-			size: 3,
-			html: 'aaa'
-		},{
-			size: 4,
-			html: 'bbb'
-		}]
-	});
-	col.show();
-	
-	lBtn = new Bt.Button({
-		text:'aButton',
-		color: 'red'
-	});
-	rBtn = new Bt.Button({
-		text: 'bButton',
-	});
-
-	Group = new Bt.Group({
-		size: 'large',
-		type: 'vertical',
-		item: [lBtn, rBtn] 
-	})
-	Group.show();
+ 	//aPanel.show();
+ 	aBtn.show();
 }
 </script>
 </head>
