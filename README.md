@@ -1,5 +1,30 @@
-bootJs
-=====
+# bootJs - BootStrap UI Library
 
-Bootstrap Javascript Library
+## Introdution
+bootJs is a Bootstrap UI Library. It helps create UI components easily. 
 
+
+## How to Use
+
+implement bootstrap, [bootJs](js/bootJs.js).
+
+```html
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<script type="text/javascript" src="js/bootJs.js"></script>
+```
+
+### Panel [[Demo]()]
+```js
+samplePanel = new Bt.Panel({
+	title: "panel title",
+	tbar: [sampleBtn],
+	color: "orange"
+ });
+```
+
+## Link
+* [Bootstrap](http://getbootstrap.com)
+
+
+## License
+bootJs released under the MIT license.
