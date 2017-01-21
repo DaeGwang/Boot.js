@@ -4,65 +4,48 @@
 <meta charset="utf-8">
 <title>Test</title>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<style type="text/css">
+body{
+	padding: 20px
+}	
+</style>
+
 <script type="text/javascript" src="js/bootJs.js"></script>
 <script type-"text/javascript">
 
- window.onload = function(){
- 	aBtn = new Bt.Button({
- 		/*
- 		 * Button Text
- 		 * ================
- 		 * default: button
- 		 */
- 		text: "Text",
- 		
- 		/*
- 		 * Button Color
- 		 * ================
- 		 * blue-primary
- 		 * green-success
- 		 * skyblue-info
- 		 * orange-warning
- 		 * red-danger
- 		 * trans-link
- 		 */
- 		color: "red", 
- 	
- 		/*
- 		 * Button Size
- 		 * ===============
- 		 * large, default, small, xsmall, block
- 		 */
- 		size: "xsmall",
- 		
- 		/*
- 		 * Button Icon
- 		 * ===============
- 		 * Includes 200 glyphs in font format from the Glyphicon Halflings set
- 		 * http://glyphicons.com/
- 		 */
+window.onload = function(){
+	var win;
+	var closeBtn = new Bt.Button({
+		text: 'Close',
+		onclick: function(){
+			win.close();
+		}
+	});
+	var saveBtn = new Bt.Button({
+		text: 'save Changes',
+		color: 'blue'
+	});
+	win = new Bt.Window({
+		title: 'Window Title',
+		html: 'Window Content',
+		footer: [closeBtn, saveBtn]
+	})
+	showBtn = new Bt.Button({
+ 		text: "Window Test",
+ 		color: "blue", 
+ 		size: "small",
  		icon: "ok",
- 		
- 		/*
- 		 * Add Event 
- 		 */
  		onclick: function(){
- 			aBtn.setText("clicked");
+ 			win.show();
+ 			//aBtn.setText("clicked");
  		}
  	});
- 	
- 	aPanel = new Bt.Panel({
- 		//title: "panel title",
- 		//tbar: [aBtn],
- 		item: [aBtn]
- 		//color: "orange"
- 	});
- 	
- 	//aPanel.show();
- 	aBtn.show();
+	showBtn.show();
 }
 </script>
 </head>
 <body>
+<div id="test">
+</div>
 </body>
 </html>

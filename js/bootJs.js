@@ -143,7 +143,11 @@ Bt.Dom = {
 		else{
 			dom = Bt.Dom.get(id);
 		}
+		this.visible(true);
 		dom.appendChild(this.el); 
+	},
+	hide: function(){
+		this.visible(false);
 	},
 	visible: function(v){
 		if(this.el) this.el.style.display = (v ? "block" : "none");
@@ -214,7 +218,7 @@ Bt.extend(Bt.Button.prototype, {
 	}
 });
 
-
+/*
 Bt.Group = function(config){
 	Bt.extend(this, config);
 	this.init();
@@ -232,10 +236,10 @@ Bt.extend(Bt.Group.prototype, {
 		return div;
 	}
 });
-
+*/
 
 //Column
-
+/*
 Bt.Col = function(config){
 	Bt.extend(this, config);
 	this.init();
@@ -257,7 +261,7 @@ Bt.extend(Bt.Col.prototype, {
 		return div;
 	}
 });
-
+*/
 
 //default component
 
@@ -280,8 +284,8 @@ Bt.extend(Bt.Comp.prototype, {
 
 
 //Form
-
 //Input
+/*
 Bt.fmInput = function(config){
 	Bt.extend(this, config);
 	this.init();
@@ -303,8 +307,9 @@ Bt.extend(Bt.fmInput.prototype, {
 		return input;
 	}
 });
-
+*/
 //Select
+/*
 Bt.fmSelect = function(config){
 	Bt.extend(this, config);
 	this.init();
@@ -326,11 +331,11 @@ Bt.extend(Bt.fmSelect.prototype, {
 		return select;
 	}
 });
-
+*/
 
 
 //Grid
-
+/*
 Bt.Grid = function(config){
 	Bt.extend(this, config);
 	this.init();
@@ -403,7 +408,7 @@ Bt.extend(Bt.Grid.prototype, {
 		return div;
 	}
 });
-
+*/
 
 
 
@@ -444,7 +449,16 @@ Bt.extend(Bt.Panel.prototype, {
 		}
 
 		pBody = Bt.tag("div","panel-body");
+		if(this.html){
+			pBody.append(this.html);
+		}
 		p.appendChild(pBody);
+		
+		if(this.footer){
+			pFooter = Bt.tag("div","panel-footer");
+			pFooter.append(this.footer);
+			p.appendChild(pFooter);
+		}
 		
 		this.mainEl = pBody;
 		this.el = p;
@@ -466,6 +480,9 @@ Bt.extend(Bt.Window.prototype, {
 	init: function(){
 		this.getEl();
 	},
+	close: function(){
+		this.hide();
+	},
 	getEl: function(){
 		var m, mDialog, mContent, mHeader, mBody, mFooter, mClose;
 		var $this = this;
@@ -484,11 +501,22 @@ Bt.extend(Bt.Window.prototype, {
 				$this.visible(false);
 			}
 			
-			mHeader.appendChild(mClose);
 			mHeader.innerHTML += this.title;
+			mHeader.appendChild(mClose);
 			mContent.appendChild(mHeader);
 		}
+		
+		if(this.html){
+			mBody.append(this.html);
+		}
 		mContent.appendChild(mBody);
+		
+		if(this.footer && this.footer instanceof Array){
+			for(var i in this.footer){
+				mFooter.appendChild(this.footer[i].el);
+			}
+		}
+		
 		mContent.appendChild(mFooter);
 		mDialog.appendChild(mContent);
 		m.appendChild(mDialog);
