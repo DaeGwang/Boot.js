@@ -36,11 +36,20 @@ window.onload = function(){
  		size: "small",
  		icon: "ok",
  		onclick: function(){
- 			win.show();
+ 			Bt.Request.ajax({
+				url:'https://jsonplaceholder.typicode.com/users',
+				type:'GET',
+				success:function(data){
+					console.log(data);
+				}
+			});
+ 			//win.show();
  			//aBtn.setText("clicked");
  		}
  	});
 	showBtn.show();
+
+
 }
 </script>
 </head>

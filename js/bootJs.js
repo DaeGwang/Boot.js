@@ -4,7 +4,8 @@
  * author: DaeGwang Jang
  */
 
-Bt = {
+var Bt = {
+	version: '1.0'
 };
 
 Bt.extend = function(obj, prop) {
@@ -86,13 +87,13 @@ Bt.extend(Bt, {
 	arrEncode: function(a) {
 		var s = [];
 		
-		if ( a.constructor == Array ) {
-			for ( var i = 0; i < a.length; i++ )
-				s.push( a[i].name + "=" + encodeURIComponent( a[i].value ) );
+		if (a.constructor == Array) {
+			for (var i = 0; i < a.length; i++)
+				s.push(a[i].name + "=" + encodeURIComponent(a[i].value));
 			
 		} else {
-			for ( var j in a )
-				s.push( j + "=" + encodeURIComponent( a[j] ) );
+			for (var j in a)
+				s.push(j + "=" + encodeURIComponent(a[j]));
 		}
 		
 		return s.join("&");
@@ -111,7 +112,7 @@ Bt.Request = {
 		if(!url){
 			var success = type.success;
 			data = type.data;
-			url = typelurl;
+			url = type.url;
 			type = type.type;
 		}
 		
@@ -119,10 +120,13 @@ Bt.Request = {
 		xml.open(type || "GET", url, true);
 		var onreadystatechange = function(){
 			if (xml && (xml.readystate == 4)){
+				console.log(xml);
+				/*
 				var status = Bt.Request.httpSuccess(xml) ? "success" : "error";
 				if(status != "error") success(xml, status);
 				xml.onreadystatechange = function(){};
 				xml = null;
+				*/
 			}
 		};
 		xml.onreadystatechange = onreadystatechange;
